@@ -1,7 +1,9 @@
 package ufjf.dcc.exr01_lucas;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -25,6 +27,14 @@ public class TelaInicial extends AppCompatActivity {
         btnAluno = (Button) findViewById(R.id.btn_aluno);
         btnServidor = (Button) findViewById(R.id.btn_servidor);
         btnExterno = (Button) findViewById(R.id.btn_externo);
-        
+
+        btnAluno.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent alunoPage = new Intent(TelaInicial.this, AlunoActivity.class);
+                startActivity(alunoPage);
+            }
+        });
+
     }
 }
