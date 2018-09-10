@@ -19,8 +19,10 @@ public class TelaInicial extends AppCompatActivity {
     private Button btnServidor;
     private Button btnExterno;
 
-    private ArrayList qtAlunos;
-   
+    private ArrayList<Aluno> listaAlunos;
+    private ArrayList<Servidor> listaServidor;
+    private ArrayList<Externo> listaExterno;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
