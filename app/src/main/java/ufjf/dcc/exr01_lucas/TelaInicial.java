@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.*;
+
+
 public class TelaInicial extends AppCompatActivity {
 
     private TextView txtAluno;
@@ -15,6 +18,9 @@ public class TelaInicial extends AppCompatActivity {
     private Button  btnAluno;
     private Button btnServidor;
     private Button btnExterno;
+
+    private ArrayList qtAlunos;
+   
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +39,7 @@ public class TelaInicial extends AppCompatActivity {
             public void onClick(View view) {
                 Intent alunoPage = new Intent(TelaInicial.this, AlunoActivity.class);
                 startActivity(alunoPage);
+
             }
         });
 
