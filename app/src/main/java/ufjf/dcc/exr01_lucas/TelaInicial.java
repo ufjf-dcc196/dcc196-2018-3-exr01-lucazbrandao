@@ -22,14 +22,16 @@ public class TelaInicial extends AppCompatActivity {
     private TextView txtAluno;
     private TextView txtQtAluno;
     private TextView txtServidor;
+    private TextView txtQtServidor;
     private TextView txtExterno;
+    private TextView txtQtExterno;
     private Button  btnAluno;
     private Button btnServidor;
     private Button btnExterno;
 
     private ArrayList<Aluno> listaAlunos = new ArrayList<Aluno>();
-    private ArrayList<Servidor> listaServidor;
-    private ArrayList<Externo> listaExterno;
+    private ArrayList<Servidor> listaServidor = new ArrayList<Servidor>();
+    private ArrayList<Externo> listaExterno = new ArrayList<Externo>();
 
 
     @Override
@@ -39,8 +41,13 @@ public class TelaInicial extends AppCompatActivity {
 
         txtAluno = (TextView) findViewById(R.id.txt_aluno);
         txtQtAluno = (TextView) findViewById(R.id.txt_qtaluno);
+
         txtServidor = (TextView) findViewById(R.id.txt_servidor);
+        txtQtServidor = (TextView) findViewById(R.id.txt_qtservidor);
+
         txtExterno = (TextView) findViewById(R.id.txt_externo);
+        txtQtExterno = (TextView) findViewById(R.id.txt_externo);
+
         btnAluno = (Button) findViewById(R.id.btn_aluno);
         btnServidor = (Button) findViewById(R.id.btn_servidor);
         btnExterno = (Button) findViewById(R.id.btn_externo);
@@ -75,7 +82,9 @@ public class TelaInicial extends AppCompatActivity {
                     txtQtAluno.setText(Integer.toString(this.listaAlunos.size()));
                     Toast.makeText(getApplicationContext(),"Aluno Registrado " + nome + " " + matricula,Toast.LENGTH_LONG).show();
                     break;
-                case 2: break;
+                case 2:
+
+                    break;
                 case 3: break;
             }
 
