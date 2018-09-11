@@ -60,6 +60,14 @@ public class TelaInicial extends AppCompatActivity {
             }
         });
 
+        btnServidor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent servidorPage = new Intent(TelaInicial.this, ServidorActivity.class);
+                startActivityForResult(servidorPage, REQUEST_SERVIDOR);
+            }
+        });
+
 
     }
 
@@ -83,7 +91,13 @@ public class TelaInicial extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Aluno Registrado " + nome + " " + matricula,Toast.LENGTH_LONG).show();
                     break;
                 case 2:
-
+                    Servidor novoServidor = new Servidor();
+                    String svnome = bundleResult.getString("name");
+                    String siape = bundleResult.getString("siape");
+                    novoServidor.registrarServidor(svnome, siape);
+                    this.listaServidor.add(novoServidor);
+                    txtQtServidor.setText(Integer.toString(this.listaServidor.size()));
+                    Toast.makeText(getApplicationContext(),"Servidor Registrado " + svnome + " " + siape,Toast.LENGTH_LONG).show();
                     break;
                 case 3: break;
             }

@@ -30,7 +30,7 @@ public class ServidorActivity extends AppCompatActivity {
                 String nome = txtNome.getText().toString();
                 String siape = txtSiape.getText().toString();
                 response.putExtra("name", nome);
-                response.putExtra("mat", siape);
+                response.putExtra("siape", siape);
                 if (!nome.isEmpty() && !siape.isEmpty()) {
                     setResult(RESULT_OK, response);
                     finish();
