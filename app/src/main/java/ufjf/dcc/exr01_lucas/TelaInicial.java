@@ -46,7 +46,7 @@ public class TelaInicial extends AppCompatActivity {
         txtQtServidor = (TextView) findViewById(R.id.txt_qtservidor);
 
         txtExterno = (TextView) findViewById(R.id.txt_externo);
-        txtQtExterno = (TextView) findViewById(R.id.txt_externo);
+        txtQtExterno = (TextView) findViewById(R.id.txt_qtexterno);
 
         btnAluno = (Button) findViewById(R.id.btn_aluno);
         btnServidor = (Button) findViewById(R.id.btn_servidor);
@@ -65,6 +65,14 @@ public class TelaInicial extends AppCompatActivity {
             public void onClick(View view) {
                 Intent servidorPage = new Intent(TelaInicial.this, ServidorActivity.class);
                 startActivityForResult(servidorPage, REQUEST_SERVIDOR);
+            }
+        });
+
+        btnExterno.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent externoPage = new Intent(TelaInicial.this, ExternoActivity.class);
+                startActivityForResult(externoPage, REQUEST_EXTERNO);
             }
         });
 
@@ -99,7 +107,15 @@ public class TelaInicial extends AppCompatActivity {
                     txtQtServidor.setText(Integer.toString(this.listaServidor.size()));
                     Toast.makeText(getApplicationContext(),"Servidor Registrado " + svnome + " " + siape,Toast.LENGTH_LONG).show();
                     break;
-                case 3: break;
+                case 3:
+                    Externo novoExterno = new Externo();
+                    String exname = bundleResult.getString("name");
+                    String email = bundleResult.getString("email");
+                    novoExterno.registrarExterno(exname, email);
+                    this.listaExterno.add(novoExterno);
+                    txtQtExterno.setText(Integer.toString(this.listaExterno.size()));
+                    Toast.makeText(getApplicationContext(),"Externo Registrado " + exname + " " + email,Toast.LENGTH_LONG).show();
+                    break;
             }
 
         }
