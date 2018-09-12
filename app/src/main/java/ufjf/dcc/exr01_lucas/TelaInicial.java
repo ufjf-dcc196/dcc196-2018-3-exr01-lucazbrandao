@@ -15,6 +15,7 @@ import java.util.*;
 
 public class TelaInicial extends AppCompatActivity {
 
+
     public static final int REQUEST_ALUNO = 1;
     public static final int REQUEST_SERVIDOR = 2;
     public static final int REQUEST_EXTERNO = 3;
@@ -89,7 +90,7 @@ public class TelaInicial extends AppCompatActivity {
             }
 
             switch (requestCode) {
-                case 1:
+                case TelaInicial.REQUEST_ALUNO:
                     Aluno novoAluno = new Aluno();
                     String nome = bundleResult.getString("name");
                     String matricula = bundleResult.getString("mat");
@@ -98,7 +99,7 @@ public class TelaInicial extends AppCompatActivity {
                     txtQtAluno.setText(Integer.toString(this.listaAlunos.size()));
                     Toast.makeText(getApplicationContext(),"Aluno Registrado " + nome + " " + matricula,Toast.LENGTH_LONG).show();
                     break;
-                case 2:
+                case TelaInicial.REQUEST_SERVIDOR:
                     Servidor novoServidor = new Servidor();
                     String svnome = bundleResult.getString("name");
                     String siape = bundleResult.getString("siape");
@@ -107,7 +108,7 @@ public class TelaInicial extends AppCompatActivity {
                     txtQtServidor.setText(Integer.toString(this.listaServidor.size()));
                     Toast.makeText(getApplicationContext(),"Servidor Registrado " + svnome + " " + siape,Toast.LENGTH_LONG).show();
                     break;
-                case 3:
+                case TelaInicial.REQUEST_EXTERNO:
                     Externo novoExterno = new Externo();
                     String exname = bundleResult.getString("name");
                     String email = bundleResult.getString("email");
